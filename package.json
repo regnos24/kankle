@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/xrs1133/kankle#readme",
   "dependencies": {
-    "electron": "^0.4.1"
+    "electron": "^0.4.1",
+    "gcloud": "^0.36.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
