@@ -1,9 +1,12 @@
 const electron = require('electron');
-require('electron-reload')(__dirname);
+var appRoot = __dirname;
+require('electron-reload')(appRoot);
+require('electron-compile').init(appRoot, './main');
 // Module to control application life.
 const {app} = electron;
 // Module to create native browser window.
 const {BrowserWindow} = electron;
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -11,7 +14,7 @@ let win;
 
 function createWindow() {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600});
+  win = new BrowserWindow({width: 1024, height: 768});
 
   // and load the index.html of the app.
   win.loadURL(`file://${__dirname}/index.html`);
@@ -49,6 +52,11 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+// app.on('ready', () => {
+//   var devTool = BrowserWindow.addDevToolsExtension("/Users/chrissonger/Library/Application\ Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.14.11_0/");
+//   console.log('------------------', devTool);
+// });
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
